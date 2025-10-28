@@ -1,50 +1,245 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report - Constitution Update
+=========================================
+Version: 0.0.0 → 1.0.0
+Date: 2025-10-24
 
-## Core Principles
+Change Type: MAJOR (Initial constitution establishment)
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+Principles Established (9 total):
+1. 高可用性架構 (High Availability Architecture) - NEW
+2. 可重複測試 (Repeatable Testing) - NEW
+3. 簡潔設計 (Simplicity First) - NEW
+4. 完整文件 (Complete Documentation) - NEW
+5. 操作手冊與測試文件 (User Manual & Test Documentation) - NEW
+6. Chrome DevTools 測試 (Chrome DevTools Testing) - NEW
+7. 現代化程式碼 (Modern Code Practices) - NEW
+8. 高安全性標準 (High Security Standards) - NEW
+9. 繁體中文優先 (Traditional Chinese First) - NEW
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Template Changes:
+- ✅ plan-template.md: Constitution Check section references this file
+- ✅ spec-template.md: Requirements alignment verified
+- ✅ tasks-template.md: Task categorization supports all principles
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+Follow-up Actions:
+- None - All placeholders filled
+- Templates validated for consistency
+- Ready for implementation
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+Rationale for MAJOR version (1.0.0):
+- First formal adoption of constitution
+- Establishes foundational governance rules
+- Defines 9 core principles that govern all development
+-->
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+# Lottery-V1 專案憲章
+<!--
+  Lottery-V1 系統專案憲章
+  定義本專案的核心原則、開發標準與治理規範
+-->
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## 核心原則
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### I. 高可用性架構
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+系統必須設計為高可用性架構，確保服務的穩定性與可靠性。
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**具體要求**：
+- 系統必須具備容錯機制，單點故障不得影響整體服務
+- 關鍵服務必須實現負載平衡與備援機制
+- 必須建立健康檢查與自動恢復機制
+- 資料庫必須實現主從複製或叢集部署
+- 必須定義並監控系統可用性指標（如 99.9% uptime）
 
-## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+**理由**：彩票系統涉及金流與用戶資產，任何停機都會造成用戶損失與信任危機，因此高可用性是不可妥協的基礎要求。
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### II. 可重複測試
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+所有功能必須可以重複測試，確保程式碼品質與系統穩定性。
+
+**具體要求**：
+- 每個功能必須有對應的測試案例
+- 測試必須可以自動化執行且結果可重現
+- 測試環境必須與生產環境隔離但保持一致性
+- 必須支援資料重置與測試資料產生機制
+- 整合測試必須涵蓋關鍵業務流程
+
+**理由**：可重複測試確保每次變更都能驗證功能正確性，降低線上錯誤風險，特別對於涉及金流的彩票系統尤為重要。
+
+### III. 簡潔設計（非協商）
+
+程式碼必須保持簡潔，避免過度設計與不必要的抽象。
+
+**具體要求**：
+- 遵循 YAGNI 原則（You Aren't Gonna Need It）
+- 不得引入未經驗證需求的抽象層
+- 優先選擇簡單直接的實現方案
+- 複雜度必須有明確的業務理由支撐
+- 禁止為「未來擴展性」而增加當前不需要的複雜度
+
+**理由**：過度設計增加維護成本、降低開發效率，並使程式碼難以理解。簡潔的設計更易於測試、除錯與演進。
+
+### IV. 完整文件
+
+必須產生完整的系統架構說明文件，包括但不限於 README。
+
+**具體要求**：
+- README 必須包含：專案簡介、技術架構、安裝步驟、環境設定
+- 必須提供系統架構圖（以繁體中文標註）
+- 必須說明各模組職責與相依關係
+- 必須記錄重要的技術決策與理由
+- API 必須有完整的端點說明與範例
+
+**理由**：完整文件確保團隊成員與未來維護者能快速理解系統，降低知識轉移成本，提升協作效率。
+
+### V. 操作手冊與測試文件
+
+必須產生操作使用手冊及功能測試文件。
+
+**具體要求**：
+- 操作手冊必須涵蓋：用戶操作流程、管理後台操作、常見問題排解
+- 測試文件必須包含：測試案例清單、測試步驟、預期結果、實際結果記錄
+- 所有文件必須使用繁體中文撰寫
+- 必須提供圖文並茂的操作說明
+- 測試文件必須與功能規格保持同步
+
+**理由**：清晰的操作手冊降低用戶學習成本，完整的測試文件確保品質可追溯，兩者共同提升系統可用性與可維護性。
+
+### VI. Chrome DevTools 測試
+
+前端頁面測試必須使用 Chrome DevTools 進行驗證。
+
+**具體要求**：
+- 必須使用 Chrome DevTools 檢查頁面效能（Performance）
+- 必須驗證頁面載入速度與資源使用情況（Network）
+- 必須檢查主控台無錯誤與警告（Console）
+- 必須驗證響應式設計與不同裝置相容性（Device Mode）
+- 必須使用 Lighthouse 進行自動化品質檢測
+
+**理由**：Chrome DevTools 提供完整的前端偵錯與效能分析工具，是業界標準。統一使用此工具確保測試一致性與專業性。
+
+### VII. 現代化程式碼
+
+程式編寫必須確認為最新寫法，可參考 Context7 等現代開發實踐。
+
+**具體要求**：
+- 使用語言與框架的最新穩定版本
+- 採用現代化的語法與 API（如 ES6+ 語法、async/await）
+- 遵循當前社群最佳實踐與設計模式
+- 避免使用已被棄用的 API 與寫法
+- 程式碼必須通過 linter 與 formatter 檢查
+
+**理由**：現代化程式碼提升可讀性、效能與安全性，降低技術債，並確保與生態系統的最新工具與函式庫相容。
+
+### VIII. 高安全性標準
+
+程式碼必須建立高安全性標準，防範常見資安漏洞。
+
+**具體要求**：
+- 必須防範 OWASP Top 10 安全風險
+- 所有用戶輸入必須進行驗證與過濾（防 XSS、SQL Injection）
+- 敏感資料必須加密儲存與傳輸（密碼、金鑰、個資）
+- 必須實現適當的身份驗證與授權機制
+- 必須記錄安全相關事件與操作日誌
+- 依賴套件必須定期更新並掃描漏洞
+
+**理由**：彩票系統涉及金流與用戶個資，安全性漏洞可能導致巨大財務損失與法律責任。高安全性標準是系統可信賴的基石。
+
+### IX. 繁體中文優先（非協商）
+
+所有文件、註解、提交訊息與用戶介面必須使用繁體中文。
+
+**具體要求**：
+- 所有文件（README、操作手冊、測試文件）必須使用繁體中文
+- 程式碼註解必須使用繁體中文說明邏輯
+- Git commit 訊息必須使用繁體中文
+- 用戶介面文字必須使用繁體中文
+- 變數與函式命名可使用英文，但必須有繁體中文註解說明
+
+**理由**：確保團隊溝通無障礙，降低誤解風險，提升協作效率。繁體中文是團隊共同語言，使用母語能更精確表達業務邏輯與技術細節。
+
+## 技術要求
+
+### 開發環境標準
+
+- **版本控制**：使用 Git，遵循 Git Flow 或 GitHub Flow
+- **程式碼審查**：所有變更必須經過 Pull Request 與至少一人審查
+- **持續整合**：必須建立 CI/CD pipeline，自動執行測試與部署
+- **環境管理**：開發、測試、正式環境必須明確分離
+- **依賴管理**：使用套件管理工具（如 npm、pip、composer）並鎖定版本
+
+### 效能標準
+
+- **回應時間**：API 端點 P95 回應時間必須 < 500ms
+- **頁面載入**：首屏渲染時間必須 < 2 秒
+- **並發處理**：系統必須支援至少 1000 並發用戶
+- **資料庫查詢**：複雜查詢必須建立索引，查詢時間 < 100ms
+
+### 可觀測性要求
+
+- **日誌記錄**：必須記錄關鍵操作、錯誤與效能指標
+- **監控告警**：必須建立系統監控與異常告警機制
+- **追蹤機制**：必須能追蹤請求在各服務間的流向
+- **儀表板**：必須提供即時的系統健康狀態儀表板
+
+## 開發流程
+
+### 功能開發流程
+
+1. **需求確認**：明確功能需求與驗收標準
+2. **技術設計**：撰寫技術設計文件，經團隊審查
+3. **測試先行**：撰寫測試案例並確認測試失敗
+4. **功能實現**：實現功能使測試通過
+5. **程式碼審查**：提交 PR 並通過審查
+6. **文件更新**：更新相關文件（README、操作手冊）
+7. **部署驗證**：部署至測試環境並執行完整測試
+
+### 品質檢查清單
+
+每個 Pull Request 必須確認：
+
+- ✅ 所有測試通過
+- ✅ 程式碼符合風格指南
+- ✅ 無安全漏洞警告
+- ✅ 效能符合標準
+- ✅ 文件已更新
+- ✅ 使用繁體中文撰寫註解與文件
+- ✅ 通過 Chrome DevTools 檢查（前端變更）
+
+## 治理規範
+
+### 憲章修訂程序
+
+1. 任何團隊成員可提出憲章修訂建議
+2. 修訂建議必須包含：變更理由、影響範圍、實施計畫
+3. 修訂必須經過團隊討論與共識決
+4. 重大變更（MAJOR）需全體同意，次要變更（MINOR）需多數同意
+5. 修訂後必須更新版本號與修訂日期
+6. 必須檢查並更新所有依賴此憲章的模板與文件
+
+### 版本管理
+
+憲章遵循語意化版本號：`MAJOR.MINOR.PATCH`
+
+- **MAJOR**：移除或重新定義原則，向後不相容
+- **MINOR**：新增原則或大幅擴充指引
+- **PATCH**：釐清說明、措辭修正、錯字修正
+
+### 合規性審查
+
+- 每個 Sprint 結束時必須審查憲章遵循情況
+- 發現違反憲章情況必須記錄並提出改善計畫
+- 重複違反必須檢討憲章是否需要修訂
+- 特殊情況下違反憲章必須有明確的例外理由文件
+
+### 例外處理
+
+當特殊情況需要暫時偏離憲章原則時：
+
+1. 必須撰寫例外申請文件，說明理由與影響範圍
+2. 必須經過團隊討論與批准
+3. 必須記錄在案並設定解除例外的目標時程
+4. 必須在解除後檢討經驗教訓
+
+**版本**：1.0.0 | **批准日期**：2025-10-24 | **最後修訂**：2025-10-24

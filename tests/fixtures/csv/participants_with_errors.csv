@@ -1,0 +1,7 @@
+姓名,員工編號,身分證字號,Email,電話
+正常資料,EMP20252001,,normal@test.com,0912222001
+,EMP20252002,,no-name@test.com,0912222002
+無ID者,,,no-id@test.com,0912222003
+Email錯誤,EMP20252004,,not-an-email,0912222004
+重複資料,EMP20252001,,duplicate@test.com,0912222005
+正常資料2,EMP20252006,,normal2@test.com,0912222006

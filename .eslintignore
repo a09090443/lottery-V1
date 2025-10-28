@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+build/
+dist/
+coverage/
+*.min.js
+public/
+playwright-report/
+test-results/

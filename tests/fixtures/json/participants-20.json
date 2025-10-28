@@ -1,0 +1,206 @@
+{
+  "version": "1.0.0",
+  "exportedAt": "2025-10-25T10:00:00.000Z",
+  "participants": [
+    {
+      "id": "p-001",
+      "name": "王建國",
+      "employeeId": "EMP20251001",
+      "nationalId": null,
+      "email": "wang.jianguo@company.com",
+      "phone": "0912111001",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-002",
+      "name": "李美玲",
+      "employeeId": "EMP20251002",
+      "nationalId": null,
+      "email": "li.meiling@company.com",
+      "phone": "0912111002",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-003",
+      "name": "張志強",
+      "employeeId": "EMP20251003",
+      "nationalId": null,
+      "email": "zhang.zhiqiang@company.com",
+      "phone": "0912111003",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-004",
+      "name": "陳淑芬",
+      "employeeId": "EMP20251004",
+      "nationalId": null,
+      "email": "chen.shufen@company.com",
+      "phone": "0912111004",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-005",
+      "name": "林雅婷",
+      "employeeId": "EMP20251005",
+      "nationalId": null,
+      "email": "lin.yating@company.com",
+      "phone": "0912111005",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-006",
+      "name": "黃宗翰",
+      "employeeId": "EMP20251006",
+      "nationalId": null,
+      "email": "huang.zonghan@company.com",
+      "phone": "0912111006",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-007",
+      "name": "吳佳玲",
+      "employeeId": "EMP20251007",
+      "nationalId": null,
+      "email": "wu.jialing@company.com",
+      "phone": "0912111007",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-008",
+      "name": "劉建宏",
+      "employeeId": "EMP20251008",
+      "nationalId": null,
+      "email": "liu.jianhong@company.com",
+      "phone": "0912111008",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-009",
+      "name": "蔡雅雯",
+      "employeeId": "EMP20251009",
+      "nationalId": null,
+      "email": "cai.yawen@company.com",
+      "phone": "0912111009",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-010",
+      "name": "鄭志豪",
+      "employeeId": "EMP20251010",
+      "nationalId": null,
+      "email": "zheng.zhihao@company.com",
+      "phone": "0912111010",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-011",
+      "name": "楊淑惠",
+      "employeeId": null,
+      "nationalId": "A123456001",
+      "email": "yang.shuhui@company.com",
+      "phone": "0922111011",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-012",
+      "name": "賴文傑",
+      "employeeId": null,
+      "nationalId": "B234567002",
+      "email": "lai.wenjie@company.com",
+      "phone": "0922111012",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-013",
+      "name": "許美華",
+      "employeeId": null,
+      "nationalId": "C345678003",
+      "email": "xu.meihua@company.com",
+      "phone": "0922111013",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-014",
+      "name": "曾志偉",
+      "employeeId": null,
+      "nationalId": "D456789004",
+      "email": "zeng.zhiwei@company.com",
+      "phone": "0922111014",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-015",
+      "name": "謝佳穎",
+      "employeeId": null,
+      "nationalId": "E567890005",
+      "email": "xie.jiaying@company.com",
+      "phone": "0922111015",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-016",
+      "name": "范建銘",
+      "employeeId": null,
+      "nationalId": "F678901006",
+      "email": "fan.jianming@company.com",
+      "phone": "0922111016",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-017",
+      "name": "游淑芳",
+      "employeeId": null,
+      "nationalId": "G789012007",
+      "email": "you.shufang@company.com",
+      "phone": "0922111017",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-018",
+      "name": "詹宗憲",
+      "employeeId": null,
+      "nationalId": "H890123008",
+      "email": "zhan.zongxian@company.com",
+      "phone": "0922111018",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-019",
+      "name": "高雅慧",
+      "employeeId": null,
+      "nationalId": "J901234009",
+      "email": "gao.yahui@company.com",
+      "phone": "0922111019",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "p-020",
+      "name": "周建華",
+      "employeeId": null,
+      "nationalId": "K012345010",
+      "email": "zhou.jianhua@company.com",
+      "phone": "0922111020",
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    }
+  ]
+}

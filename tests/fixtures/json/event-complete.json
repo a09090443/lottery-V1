@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "exportedAt": "2025-10-25T10:00:00.000Z",
+  "event": {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "name": "2025 年終大抽獎",
+    "description": "全公司年終尾牙大抽獎，獎品豐富！",
+    "scheduledAt": "2025-12-31T19:00:00+08:00",
+    "createdAt": "2025-10-25T10:00:00.000Z",
+    "updatedAt": "2025-10-25T10:00:00.000Z",
+    "status": "draft",
+    "allowDuplicateWinners": false,
+    "participantCount": 0,
+    "prizeCount": 0,
+    "drawnWinnersCount": 0
+  },
+  "prizes": [
+    {
+      "id": "prize-001",
+      "eventId": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "特等獎",
+      "description": "iPhone 15 Pro Max",
+      "totalQuantity": 1,
+      "remainingQuantity": 1,
+      "displayOrder": 1,
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "prize-002",
+      "eventId": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "頭獎",
+      "description": "iPad Air",
+      "totalQuantity": 2,
+      "remainingQuantity": 2,
+      "displayOrder": 2,
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    },
+    {
+      "id": "prize-003",
+      "eventId": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "貳獎",
+      "description": "AirPods Pro",
+      "totalQuantity": 5,
+      "remainingQuantity": 5,
+      "displayOrder": 3,
+      "createdAt": "2025-10-25T10:00:00.000Z",
+      "updatedAt": "2025-10-25T10:00:00.000Z"
+    }
+  ],
+  "participants": [],
+  "drawingResults": []
+}
