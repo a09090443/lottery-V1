@@ -43,7 +43,13 @@ export function ParticipantList({ eventId, refreshTrigger }: ParticipantListProp
 
   useEffect(() => {
     loadParticipants();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [eventId, refreshTrigger]);
+
+  // 重置搜尋時回到第一頁
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
 
   const handleRemove = async (participantId: string, participantName: string) => {
     const confirmed = await confirm({
@@ -115,11 +121,6 @@ export function ParticipantList({ eventId, refreshTrigger }: ParticipantListProp
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const paginatedParticipants = filteredParticipants.slice(startIndex, endIndex);
-
-  // 重置搜尋時回到第一頁
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [searchTerm]);
 
   return (
     <div className="space-y-4">

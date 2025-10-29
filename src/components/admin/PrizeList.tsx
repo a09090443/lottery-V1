@@ -5,7 +5,7 @@
  * 獎項列表元件
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Prize } from '@/types';
 import { listPrizesByEvent, deletePrize } from '@/lib/data/prizes';
 
@@ -21,7 +21,7 @@ export function PrizeList({ eventId, onPrizeEdit, refreshTrigger }: PrizeListPro
   const [error, setError] = useState<string | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
-  const loadPrizes = async () => {
+  const loadPrizes = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
@@ -33,11 +33,11 @@ export function PrizeList({ eventId, onPrizeEdit, refreshTrigger }: PrizeListPro
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [eventId]);
 
   useEffect(() => {
     loadPrizes();
-  }, [eventId, refreshTrigger]);
+  }, [loadPrizes, refreshTrigger]);
 
   const handleDelete = async (prizeId: string) => {
     if (!confirm('確定要刪除此獎項嗎？此操作無法復原。')) {

@@ -5,7 +5,7 @@
  * 管理端中獎結果詳情頁面
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { DrawingResultWithDetails } from '@/types';
 import { getDrawingResultWithDetails, updateDrawingResultStatus } from '@/lib/data/results';
@@ -24,11 +24,7 @@ export default function AdminResultDetailPage({
   const [error, setError] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  useEffect(() => {
-    loadResult();
-  }, [resultId]);
-
-  const loadResult = async () => {
+  const loadResult = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
@@ -51,7 +47,11 @@ export default function AdminResultDetailPage({
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [resultId, eventId]);
+
+  useEffect(() => {
+    loadResult();
+  }, [loadResult]);
 
   const handleCancelResult = async () => {
     if (!result || result.status === 'cancelled') {

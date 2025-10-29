@@ -8,6 +8,7 @@
 import { useState } from 'react';
 import { LotteryEvent, CreateEventInput, UpdateEventInput } from '@/types';
 import { createEvent, updateEvent } from '@/lib/data/events';
+import { datetimeLocalToISO } from '@/lib/utils/date';
 
 export interface EventFormProps {
   event?: LotteryEvent; // 如果提供則為編輯模式
@@ -41,12 +42,15 @@ export function EventForm({ event, onSuccess, onCancel }: EventFormProps) {
     try {
       let result: LotteryEvent;
 
+      // 將 datetime-local 格式轉換為 ISO 8601 格式
+      const scheduledAtISO = datetimeLocalToISO(formData.scheduledAt);
+
       if (isEditMode) {
         // 編輯模式
         const input: UpdateEventInput = {
           name: formData.name,
           description: formData.description || null,
-          scheduledAt: formData.scheduledAt,
+          scheduledAt: scheduledAtISO,
           allowDuplicateWinners: formData.allowDuplicateWinners,
         };
         result = await updateEvent(event.id, input);
@@ -55,7 +59,7 @@ export function EventForm({ event, onSuccess, onCancel }: EventFormProps) {
         const input: CreateEventInput = {
           name: formData.name,
           description: formData.description || undefined,
-          scheduledAt: formData.scheduledAt,
+          scheduledAt: scheduledAtISO,
           allowDuplicateWinners: formData.allowDuplicateWinners,
         };
         result = await createEvent(input);

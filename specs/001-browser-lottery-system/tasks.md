@@ -22,16 +22,16 @@
 
 **目的**: 建立專案結構與基礎設定
 
-- [ ] T001 Create Next.js 14 project with App Router and TypeScript configuration
-- [ ] T002 Install core dependencies (react@18, next@14, typescript@5, framer-motion, zod)
-- [ ] T003 [P] Install development dependencies (vitest, @testing-library/react, playwright, eslint, prettier)
-- [ ] T004 [P] Create project directory structure per plan.md (src/app, src/components, src/lib, src/types, src/contexts, tests/)
-- [ ] T005 [P] Configure TypeScript with strict mode in tsconfig.json
-- [ ] T006 [P] Configure ESLint and Prettier in .eslintrc.json and .prettierrc
-- [ ] T007 [P] Configure Vitest in vitest.config.ts
-- [ ] T008 [P] Configure Playwright in playwright.config.ts
-- [ ] T009 [P] Setup Next.js static export configuration in next.config.js
-- [ ] T010 [P] Create package.json scripts for dev, build, test, lint
+- [x] T001 Create Next.js 14 project with App Router and TypeScript configuration
+- [x] T002 Install core dependencies (react@18, next@14, typescript@5, framer-motion, zod)
+- [x] T003 [P] Install development dependencies (vitest, @testing-library/react, playwright, eslint, prettier)
+- [x] T004 [P] Create project directory structure per plan.md (src/app, src/components, src/lib, src/types, src/contexts, tests/)
+- [x] T005 [P] Configure TypeScript with strict mode in tsconfig.json
+- [x] T006 [P] Configure ESLint and Prettier in .eslintrc.json and .prettierrc
+- [x] T007 [P] Configure Vitest in vitest.config.ts
+- [x] T008 [P] Configure Playwright in playwright.config.ts
+- [x] T009 [P] Setup Next.js static export configuration in next.config.js
+- [x] T010 [P] Create package.json scripts for dev, build, test, lint
 
 ---
 
@@ -43,32 +43,32 @@
 
 ### 資料層基礎設施
 
-- [ ] T011 Copy TypeScript interfaces and Zod schemas from specs/001-browser-lottery-system/contracts/data-schemas.ts to src/types/index.ts
-- [ ] T012 [P] Implement localStorage wrapper utilities in src/lib/database/storage.ts (getItem, setItem, removeItem with error handling)
-- [ ] T013 [P] Implement SQLite WASM initialization in src/lib/database/sqlite.ts (database connection, basic execute method)
-- [ ] T014 Create database schema SQL file in src/lib/database/schema.sql (events, prizes, participants, event_participants, drawing_results tables)
-- [ ] T015 Implement database migration runner in src/lib/database/migrations.ts (init database, run migrations, check version)
-- [ ] T016 Implement data version management in src/lib/database/version.ts (read/write version to localStorage)
+- [x] T011 Copy TypeScript interfaces and Zod schemas from specs/001-browser-lottery-system/contracts/data-schemas.ts to src/types/index.ts
+- [x] T012 [P] Implement localStorage wrapper utilities in src/lib/database/storage.ts (getItem, setItem, removeItem with error handling)
+- [x] T013 [P] Implement SQLite WASM initialization in src/lib/database/sqlite.ts (database connection, basic execute method)
+- [x] T014 Create database schema SQL file in src/lib/database/schema.sql (events, prizes, participants, event_participants, drawing_results tables)
+- [x] T015 Implement database migration runner in src/lib/database/migrations.ts (init database, run migrations, check version)
+- [x] T016 Implement data version management in src/lib/database/version.ts (read/write version to localStorage)
 
 ### 管理員認證基礎設施 (研究主題 3)
 
-- [ ] T017 [P] Implement password hashing utilities in src/lib/auth/crypto.ts (SHA-256 hash function)
-- [ ] T018 [P] Implement admin auth functions in src/lib/auth/admin-auth.ts (setPassword, verifyPassword, createSession, isLoggedIn, logout)
-- [ ] T019 Create ProtectedRoute component in src/components/auth/ProtectedRoute.tsx (check session, redirect to login)
-- [ ] T020 Create admin login page layout in src/app/admin/login/page.tsx
-- [ ] T021 Create admin layout with ProtectedRoute wrapper in src/app/admin/layout.tsx
+- [x] T017 [P] Implement password hashing utilities in src/lib/auth/crypto.ts (SHA-256 hash function)
+- [x] T018 [P] Implement admin auth functions in src/lib/auth/admin-auth.ts (setPassword, verifyPassword, createSession, isLoggedIn, logout)
+- [x] T019 Create ProtectedRoute component in src/components/auth/ProtectedRoute.tsx (check session, redirect to login)
+- [x] T020 Create admin login page layout in src/app/admin/login/page.tsx
+- [x] T021 Create admin layout with ProtectedRoute wrapper in src/app/admin/layout.tsx
 
 ### 工具函式庫
 
-- [ ] T022 [P] Implement ID masking utility in src/lib/utils/idMasking.ts (mask employee/national ID showing first 6 chars)
-- [ ] T023 [P] Implement date formatting utilities in src/lib/utils/date.ts (ISO 8601 format, validation)
-- [ ] T024 [P] Implement validation utilities in src/lib/utils/validation.ts (Zod schema wrappers, error formatting)
-- [ ] T025 [P] Create UI components library in src/components/ui/ (Button.tsx, Input.tsx, Dialog.tsx, Alert.tsx)
+- [x] T022 [P] Implement ID masking utility in src/lib/utils/idMasking.ts (mask employee/national ID showing first 6 chars)
+- [x] T023 [P] Implement date formatting utilities in src/lib/utils/date.ts (ISO 8601 format, validation)
+- [x] T024 [P] Implement validation utilities in src/lib/utils/validation.ts (Zod schema wrappers, error formatting)
+- [x] T025 [P] Create UI components library in src/components/ui/ (Button.tsx, Input.tsx, Dialog.tsx, Alert.tsx)
 
 ### 全域狀態管理
 
-- [ ] T026 [P] Create EventContext in src/contexts/EventContext.tsx (manage current event state)
-- [ ] T027 [P] Create DrawContext in src/contexts/DrawContext.tsx (manage lottery drawing state)
+- [x] T026 [P] Create EventContext in src/contexts/EventContext.tsx (manage current event state)
+- [x] T027 [P] Create DrawContext in src/contexts/DrawContext.tsx (manage lottery drawing state)
 
 **Checkpoint**: 基礎設施完成 - User Story 實作可以開始
 
@@ -82,43 +82,43 @@
 
 ### 實作 US1: 資料層
 
-- [ ] T028 [P] [US1] Implement Event CRUD operations in src/lib/data/events.ts (create, read, update, delete, list with filters)
-- [ ] T029 [P] [US1] Implement Prize CRUD operations in src/lib/data/prizes.ts (create, read, update, delete, listByEvent)
-- [ ] T030 [P] [US1] Implement Participant CRUD operations in src/lib/data/participants.ts (create, read, update, delete, listByEvent, checkUniqueness)
-- [ ] T031 [US1] Implement event-participant association operations in src/lib/data/eventParticipants.ts (add participant to event, remove, list)
+- [x] T028 [P] [US1] Implement Event CRUD operations in src/lib/data/events.ts (create, read, update, delete, list with filters)
+- [x] T029 [P] [US1] Implement Prize CRUD operations in src/lib/data/prizes.ts (create, read, update, delete, listByEvent)
+- [x] T030 [P] [US1] Implement Participant CRUD operations in src/lib/data/participants.ts (create, read, update, delete, listByEvent, checkUniqueness)
+- [x] T031 [US1] Implement event-participant association operations in src/lib/data/eventParticipants.ts (add participant to event, remove, list)
 
 ### 實作 US1: 匯入功能
 
-- [ ] T032 [P] [US1] Implement CSV parser in src/lib/import/csv.ts (parse CSV file, validate structure, return ParticipantImportRow[])
-- [ ] T033 [US1] Implement participant import validator in src/lib/import/validator.ts (validate row data, check duplicates, return ImportResult)
-- [ ] T034 [US1] Integrate CSV import workflow in src/lib/import/index.ts (parse + validate + save participants)
+- [x] T032 [P] [US1] Implement CSV parser in src/lib/import/csv.ts (parse CSV file, validate structure, return ParticipantImportRow[])
+- [x] T033 [US1] Implement participant import validator in src/lib/import/validator.ts (validate row data, check duplicates, return ImportResult)
+- [x] T034 [US1] Integrate CSV import workflow in src/lib/import/index.ts (parse + validate + save participants)
 
 ### 實作 US1: UI 元件
 
-- [ ] T035 [P] [US1] Create EventForm component in src/components/events/EventForm.tsx (name, description, scheduledAt, allowDuplicateWinners)
-- [ ] T036 [P] [US1] Create EventList component in src/components/events/EventList.tsx (display events, filter by status)
-- [ ] T037 [P] [US1] Create PrizeForm component in src/components/prizes/PrizeForm.tsx (name, description, totalQuantity, displayOrder)
-- [ ] T038 [P] [US1] Create PrizeList component in src/components/prizes/PrizeList.tsx (display prizes, edit, delete)
-- [ ] T039 [P] [US1] Create ParticipantForm component in src/components/participants/ParticipantForm.tsx (name, employeeId/nationalId, email, phone)
-- [ ] T040 [P] [US1] Create ParticipantList component in src/components/participants/ParticipantList.tsx (display participants with masked IDs)
-- [ ] T041 [P] [US1] Create ParticipantImport component in src/components/participants/ParticipantImport.tsx (file upload, preview, import)
+- [x] T035 [P] [US1] Create EventForm component in src/components/events/EventForm.tsx (name, description, scheduledAt, allowDuplicateWinners)
+- [x] T036 [P] [US1] Create EventList component in src/components/events/EventList.tsx (display events, filter by status)
+- [x] T037 [P] [US1] Create PrizeForm component in src/components/prizes/PrizeForm.tsx (name, description, totalQuantity, displayOrder)
+- [x] T038 [P] [US1] Create PrizeList component in src/components/prizes/PrizeList.tsx (display prizes, edit, delete)
+- [x] T039 [P] [US1] Create ParticipantForm component in src/components/participants/ParticipantForm.tsx (name, employeeId/nationalId, email, phone)
+- [x] T040 [P] [US1] Create ParticipantList component in src/components/participants/ParticipantList.tsx (display participants with masked IDs)
+- [x] T041 [P] [US1] Create ParticipantImport component in src/components/participants/ParticipantImport.tsx (file upload, preview, import)
 
 ### 實作 US1: 頁面與路由
 
-- [ ] T042 [US1] Create admin dashboard page in src/app/admin/page.tsx (event summary, quick actions)
-- [ ] T043 [US1] Create event list page in src/app/admin/events/page.tsx (use EventList component)
-- [ ] T044 [US1] Create new event page in src/app/admin/events/new/page.tsx (use EventForm component)
-- [ ] T045 [US1] Create event detail/edit page in src/app/admin/events/[id]/page.tsx (event info, prizes, participants tabs)
-- [ ] T046 [US1] Create prize management section in src/app/admin/events/[id]/prizes/page.tsx (add/edit prizes)
-- [ ] T047 [US1] Create participant management section in src/app/admin/events/[id]/participants/page.tsx (add manually or import CSV)
+- [x] T042 [US1] Create admin dashboard page in src/app/admin/page.tsx (event summary, quick actions)
+- [x] T043 [US1] Create event list page in src/app/admin/events/page.tsx (use EventList component)
+- [x] T044 [US1] Create new event page in src/app/admin/events/new/page.tsx (use EventForm component)
+- [x] T045 [US1] Create event detail/edit page in src/app/admin/events/[id]/page.tsx (event info, prizes, participants tabs)
+- [x] T046 [US1] Create prize management section in src/app/admin/events/[id]/prizes/page.tsx (add/edit prizes)
+- [x] T047 [US1] Create participant management section in src/app/admin/events/[id]/participants/page.tsx (add manually or import CSV)
 
 ### 實作 US1: 驗證與錯誤處理
 
-- [ ] T048 [US1] Add client-side validation for EventForm using CreateEventInputSchema
-- [ ] T049 [US1] Add client-side validation for PrizeForm using CreatePrizeInputSchema
-- [ ] T050 [US1] Add client-side validation for ParticipantForm using CreateParticipantInputSchema
-- [ ] T051 [US1] Implement error boundary component in src/components/ErrorBoundary.tsx
-- [ ] T052 [US1] Add toast notifications for success/error feedback in src/components/ui/Toast.tsx
+- [x] T048 [US1] Add client-side validation for EventForm using CreateEventInputSchema
+- [x] T049 [US1] Add client-side validation for PrizeForm using CreatePrizeInputSchema
+- [x] T050 [US1] Add client-side validation for ParticipantForm using CreateParticipantInputSchema
+- [x] T051 [US1] Implement error boundary component in src/components/ErrorBoundary.tsx
+- [x] T052 [US1] Add toast notifications for success/error feedback in src/components/ui/Toast.tsx
 
 **Checkpoint**: US1 完成 - 管理員可建立活動、設定獎項、新增參與者,所有資料持久化
 
@@ -132,39 +132,39 @@
 
 ### 實作 US2: 抽獎邏輯
 
-- [ ] T053 [P] [US2] Implement random selection algorithm in src/lib/lottery/algorithm.ts (Fisher-Yates shuffle, select random winner)
-- [ ] T054 [US2] Implement lottery validator in src/lib/lottery/validator.ts (check duplicate winners, validate participants pool, check prize availability)
-- [ ] T055 [US2] Implement Drawing Result CRUD in src/lib/data/results.ts (create, read, update status, listByEvent, listByPrize)
-- [ ] T056 [US2] Integrate lottery execution workflow in src/lib/lottery/executor.ts (select winner, update prize quantity, save result)
+- [x] T053 [P] [US2] Implement random selection algorithm in src/lib/lottery/algorithm.ts (Fisher-Yates shuffle, select random winner)
+- [x] T054 [US2] Implement lottery validator in src/lib/lottery/validator.ts (check duplicate winners, validate participants pool, check prize availability)
+- [x] T055 [US2] Implement Drawing Result CRUD in src/lib/data/results.ts (create, read, update status, listByEvent, listByPrize)
+- [x] T056 [US2] Integrate lottery execution workflow in src/lib/lottery/executor.ts (select winner, update prize quantity, save result)
 
 ### 實作 US2: 動畫元件 (Framer Motion - 研究主題 1)
 
-- [ ] T057 [US2] Create SlotMachine component skeleton in src/components/lottery/SlotMachine.tsx
-- [ ] T058 [US2] Implement rapid scrolling animation using useAnimate hook in SlotMachine.tsx (scroll participant names at high speed)
-- [ ] T059 [US2] Implement deceleration effect in SlotMachine.tsx (gradually slow down before stopping)
-- [ ] T060 [US2] Implement winner reveal animation in SlotMachine.tsx (highlight final winner with scale + background color)
-- [ ] T061 [US2] Add animation duration configuration (2-5 seconds configurable) in SlotMachine.tsx
-- [ ] T062 [US2] Optimize performance with LazyMotion in SlotMachine.tsx (reduce bundle size to ~5.5 KB)
+- [x] T057 [US2] Create SlotMachine component skeleton in src/components/lottery/SlotMachine.tsx
+- [x] T058 [US2] Implement rapid scrolling animation using useAnimate hook in SlotMachine.tsx (scroll participant names at high speed)
+- [x] T059 [US2] Implement deceleration effect in SlotMachine.tsx (gradually slow down before stopping)
+- [x] T060 [US2] Implement winner reveal animation in SlotMachine.tsx (highlight final winner with scale + background color)
+- [x] T061 [US2] Add animation duration configuration (2-5 seconds configurable) in SlotMachine.tsx
+- [x] T062 [US2] Optimize performance with LazyMotion in SlotMachine.tsx (reduce bundle size to ~5.5 KB)
 
 ### 實作 US2: UI 元件
 
-- [ ] T063 [P] [US2] Create PrizeSelector component in src/components/lottery/PrizeSelector.tsx (select prize to draw, show remaining quantity)
-- [ ] T064 [P] [US2] Create DrawingControl component in src/components/lottery/DrawingControl.tsx (start drawing button, next winner button for multi-quantity)
-- [ ] T065 [P] [US2] Create WinnerDisplay component in src/components/lottery/WinnerDisplay.tsx (show winner name + masked ID, confirm/cancel actions)
-- [ ] T066 [P] [US2] Create DrawingProgress component in src/components/lottery/DrawingProgress.tsx (show "Winner X of Y" for multi-quantity prizes)
+- [x] T063 [P] [US2] Create PrizeSelector component in src/components/lottery/PrizeSelector.tsx (select prize to draw, show remaining quantity)
+- [x] T064 [P] [US2] Create DrawingControl component in src/components/lottery/DrawingControl.tsx (start drawing button, next winner button for multi-quantity)
+- [x] T065 [P] [US2] Create WinnerDisplay component in src/components/lottery/WinnerDisplay.tsx (show winner name + masked ID, confirm/cancel actions)
+- [x] T066 [P] [US2] Create DrawingProgress component in src/components/lottery/DrawingProgress.tsx (show "Winner X of Y" for multi-quantity prizes)
 
 ### 實作 US2: 頁面與流程
 
-- [ ] T067 [US2] Create lottery drawing page in src/app/admin/draw/[eventId]/page.tsx (prize selection, drawing execution, winner confirmation)
-- [ ] T068 [US2] Integrate SlotMachine component in drawing page
-- [ ] T069 [US2] Implement multi-quantity drawing flow (draw one, confirm, draw next) in drawing page
-- [ ] T070 [US2] Handle duplicate winner prevention logic based on event.allowDuplicateWinners
-- [ ] T071 [US2] Add real-time prize quantity updates after each drawing
+- [x] T067 [US2] Create lottery drawing page in src/app/admin/draw/[eventId]/page.tsx (prize selection, drawing execution, winner confirmation)
+- [x] T068 [US2] Integrate SlotMachine component in drawing page
+- [x] T069 [US2] Implement multi-quantity drawing flow (draw one, confirm, draw next) in drawing page
+- [x] T070 [US2] Handle duplicate winner prevention logic based on event.allowDuplicateWinners
+- [x] T071 [US2] Add real-time prize quantity updates after each drawing
 
 ### 實作 US2: 狀態管理
 
-- [ ] T072 [US2] Update DrawContext to manage current drawing state (selected prize, winner, animation state, draw sequence)
-- [ ] T073 [US2] Implement drawing state machine (idle → selecting prize → animating → winner revealed → confirming → completed)
+- [x] T072 [US2] Update DrawContext to manage current drawing state (selected prize, winner, animation state, draw sequence)
+- [x] T073 [US2] Implement drawing state machine (idle → selecting prize → animating → winner revealed → confirming → completed)
 
 **Checkpoint**: US2 完成 - 管理員可執行完整抽獎流程,包含動畫與多數量獎項處理
 
@@ -178,29 +178,29 @@
 
 ### 實作 US3: 匯出功能
 
-- [ ] T074 [P] [US3] Implement CSV export for winners in src/lib/export/csv.ts (generate CSV from DrawingResult[], include complete unmasked data)
-- [ ] T075 [P] [US3] Implement JSON export for full event backup in src/lib/export/json.ts (export EventBackupData structure)
-- [ ] T076 [US3] Create export workflow in src/lib/export/index.ts (select format, generate file, trigger download)
+- [x] T074 [P] [US3] Implement CSV export for winners in src/lib/export/csv.ts (generate CSV from DrawingResult[], include complete unmasked data)
+- [x] T075 [P] [US3] Implement JSON export for full event backup in src/lib/export/json.ts (export EventBackupData structure)
+- [x] T076 [US3] Create export workflow in src/lib/export/index.ts (select format, generate file, trigger download)
 
 ### 實作 US3: UI 元件
 
-- [ ] T077 [P] [US3] Create ResultsList component in src/components/results/ResultsList.tsx (display all winners with masked IDs, group by prize)
-- [ ] T078 [P] [US3] Create ResultsFilter component in src/components/results/ResultsFilter.tsx (filter by prize, status, date range)
-- [ ] T079 [P] [US3] Create ExportButton component in src/components/results/ExportButton.tsx (select format CSV/JSON, trigger export)
-- [ ] T080 [P] [US3] Create ResultActions component in src/components/results/ResultActions.tsx (cancel result, reset drawing)
+- [x] T077 [P] [US3] Create ResultsList component in src/components/results/ResultsList.tsx (display all winners with masked IDs, group by prize)
+- [x] T078 [P] [US3] Create ResultsFilter component in src/components/results/ResultsFilter.tsx (filter by prize, status, date range)
+- [x] T079 [P] [US3] Create ExportButton component in src/components/results/ExportButton.tsx (select format CSV/JSON, trigger export)
+- [x] T080 [P] [US3] Create ResultActions component in src/components/results/ResultActions.tsx (cancel result, reset drawing)
 
 ### 實作 US3: 頁面
 
-- [ ] T081 [US3] Create results management page in src/app/admin/results/[eventId]/page.tsx (results list, filter, export, actions)
-- [ ] T082 [US3] Implement result cancellation workflow (update status to cancelled, restore prize quantity, allow re-draw)
-- [ ] T083 [US3] Implement result reset workflow (delete all results for event, restore all prize quantities, show confirmation dialog)
-- [ ] T084 [US3] Add timestamp and drawing sequence display in results list
+- [x] T081 [US3] Create results management page in src/app/admin/results/[eventId]/page.tsx (results list, filter, export, actions)
+- [x] T082 [US3] Implement result cancellation workflow (update status to cancelled, restore prize quantity, allow re-draw)
+- [x] T083 [US3] Implement result reset workflow (delete all results for event, restore all prize quantities, show confirmation dialog)
+- [x] T084 [US3] Add timestamp and drawing sequence display in results list
 
 ### 實作 US3: 資料完整性
 
-- [ ] T085 [US3] Implement result validation before export (ensure all referenced entities exist)
-- [ ] T086 [US3] Add export confirmation dialog with data preview
-- [ ] T087 [US3] Add destructive action warnings (reset results, delete event with results)
+- [x] T085 [US3] Implement result validation before export (ensure all referenced entities exist)
+- [x] T086 [US3] Add export confirmation dialog with data preview
+- [x] T087 [US3] Add destructive action warnings (reset results, delete event with results)
 
 **Checkpoint**: US3 完成 - 管理員可查看、匯出、管理所有抽獎結果
 
@@ -214,22 +214,22 @@
 
 ### 實作 US4: UI 元件 (公開前台)
 
-- [ ] T088 [P] [US4] Create PublicEventList component in src/components/events/PublicEventList.tsx (display events with status badges, no edit controls)
-- [ ] T089 [P] [US4] Create PublicEventDetail component in src/components/events/PublicEventDetail.tsx (event name, description, prizes, no admin actions)
-- [ ] T090 [P] [US4] Create PublicWinnersList component in src/components/results/PublicWinnersList.tsx (display winners with masked IDs, group by prize)
-- [ ] T091 [P] [US4] Create EventStatusBadge component in src/components/events/EventStatusBadge.tsx (pending/active/completed visual indicators)
+- [x] T088 [P] [US4] Create PublicEventList component in src/components/events/PublicEventList.tsx (display events with status badges, no edit controls)
+- [x] T089 [P] [US4] Create PublicEventDetail component in src/components/events/PublicEventDetail.tsx (event name, description, prizes, no admin actions)
+- [x] T090 [P] [US4] Create PublicWinnersList component in src/components/results/PublicWinnersList.tsx (display winners with masked IDs, group by prize)
+- [x] T091 [P] [US4] Create EventStatusBadge component in src/components/events/EventStatusBadge.tsx (pending/active/completed visual indicators)
 
 ### 實作 US4: 頁面 (公開路由)
 
-- [ ] T092 [US4] Create public homepage in src/app/(public)/page.tsx (use PublicEventList component)
-- [ ] T093 [US4] Create public event detail page in src/app/(public)/events/[id]/page.tsx (event info, prizes, winners if completed)
-- [ ] T094 [US4] Add conditional rendering for drawing status (pending: "抽獎待進行", completed: show winners)
-- [ ] T095 [US4] Ensure no admin controls or links visible on public pages
+- [x] T092 [US4] Create public homepage in src/app/(public)/page.tsx (use PublicEventList component)
+- [x] T093 [US4] Create public event detail page in src/app/(public)/events/[id]/page.tsx (event info, prizes, winners if completed)
+- [x] T094 [US4] Add conditional rendering for drawing status (pending: "抽獎待進行", completed: show winners)
+- [x] T095 [US4] Ensure no admin controls or links visible on public pages
 
 ### 實作 US4: 資料存取控制
 
-- [ ] T096 [US4] Create read-only data access functions in src/lib/data/public.ts (getPublicEvents, getPublicEventDetail, getPublicWinners)
-- [ ] T097 [US4] Ensure all displayed IDs are masked using idMasking utility
+- [x] T096 [US4] Create read-only data access functions in src/lib/data/public.ts (getPublicEvents, getPublicEventDetail, getPublicWinners)
+- [x] T097 [US4] Ensure all displayed IDs are masked using idMasking utility
 
 **Checkpoint**: US4 完成 - 公開前台可查看活動與中獎資訊,完全分離管理功能
 

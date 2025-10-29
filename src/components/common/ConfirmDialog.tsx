@@ -59,14 +59,14 @@ export function ConfirmDialogProvider({ children }: ConfirmDialogProviderProps) 
       dialogState.resolve(true);
     }
     setDialogState({ isOpen: false, options: null, resolve: null });
-  }, [dialogState.resolve]);
+  }, [dialogState]);
 
   const handleCancel = useCallback(() => {
     if (dialogState.resolve) {
       dialogState.resolve(false);
     }
     setDialogState({ isOpen: false, options: null, resolve: null });
-  }, [dialogState.resolve]);
+  }, [dialogState]);
 
   return (
     <ConfirmDialogContext.Provider value={{ confirm }}>

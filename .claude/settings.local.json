@@ -63,7 +63,16 @@
       "Bash(timeout 10 bash:*)",
       "mcp__chrome-devtools__wait_for",
       "mcp__chrome-devtools__fill_form",
-      "mcp__chrome-devtools__navigate_page_history"
+      "mcp__chrome-devtools__navigate_page_history",
+      "Bash(timeout 5 bash:*)",
+      "Bash(timeout 15 bash:*)",
+      "mcp__chrome-devtools__select_page",
+      "Bash(powershell -Command:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(timeout /t 5)",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File update-tasks.ps1)",
+      "Bash(git reset:*)"
     ],
     "deny": [],
     "ask": []

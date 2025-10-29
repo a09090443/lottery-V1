@@ -5,7 +5,7 @@
  * 管理端單一活動詳情頁面
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { LotteryEvent, Prize } from '@/types';
 import { getEvent } from '@/lib/data/events';
@@ -32,11 +32,7 @@ export default function AdminEventDetailPage({ params }: { params: { id: string 
   const [showParticipantImport, setShowParticipantImport] = useState(false);
   const [participantRefreshTrigger, setParticipantRefreshTrigger] = useState(0);
 
-  useEffect(() => {
-    loadEvent();
-  }, [params.id]);
-
-  const loadEvent = async () => {
+  const loadEvent = useCallback(async () => {
     setIsLoading(true);
     try {
       const data = await getEvent(params.id);
@@ -52,7 +48,11 @@ export default function AdminEventDetailPage({ params }: { params: { id: string 
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [params.id, router]);
+
+  useEffect(() => {
+    loadEvent();
+  }, [loadEvent]);
 
   // Prize handlers
   const handleCreatePrize = () => {

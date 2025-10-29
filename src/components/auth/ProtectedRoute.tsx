@@ -8,6 +8,7 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { isLoggedIn } from '@/lib/auth/admin-auth';
+import { initDatabase } from '@/lib/database/migrations';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -19,7 +20,7 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const checkAuth = () => {
+    const checkAuthAndInitDb = async () => {
       // 登入頁面不需要保護
       if (typeof window !== 'undefined' && window.location.pathname === '/admin/login') {
         setIsAuthorized(true);
@@ -29,13 +30,23 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
 
       if (!isLoggedIn()) {
         router.push('/admin/login');
-      } else {
-        setIsAuthorized(true);
+        setIsLoading(false);
+        return;
       }
+
+      // 已登入，初始化數據庫
+      try {
+        await initDatabase();
+      } catch (error) {
+        console.error('數據庫初始化失敗:', error);
+        // 初始化失敗不應該阻止用戶進入，但會在後續操作時顯示錯誤
+      }
+
+      setIsAuthorized(true);
       setIsLoading(false);
     };
 
-    checkAuth();
+    checkAuthAndInitDb();
   }, [router]);
 
   if (isLoading) {

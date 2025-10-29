@@ -5,7 +5,7 @@
  * 公開活動詳情頁面
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { LotteryEvent, Prize } from '@/types';
 import { getEvent } from '@/lib/data/events';
 import { listPrizesByEvent } from '@/lib/data/prizes';
@@ -27,11 +27,7 @@ export default function PublicEventDetailPage({ params }: { params: { id: string
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    loadEventData();
-  }, [eventId]);
-
-  const loadEventData = async () => {
+  const loadEventData = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
@@ -77,7 +73,11 @@ export default function PublicEventDetailPage({ params }: { params: { id: string
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [eventId]);
+
+  useEffect(() => {
+    loadEventData();
+  }, [loadEventData]);
 
   if (isLoading) {
     return (

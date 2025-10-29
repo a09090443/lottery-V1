@@ -5,7 +5,7 @@
  * 管理端中獎結果列表頁面
  */
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { LotteryEvent, Prize, DrawingResultWithDetails } from '@/types';
 import { getEvent } from '@/lib/data/events';
@@ -34,11 +34,7 @@ export default function AdminResultsPage({ params }: { params: { eventId: string
   });
 
   // Load initial data
-  useEffect(() => {
-    loadData();
-  }, [eventId]);
-
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
@@ -68,7 +64,11 @@ export default function AdminResultsPage({ params }: { params: { eventId: string
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [eventId]);
+
+  useEffect(() => {
+    loadData();
+  }, [loadData]);
 
   // Apply filters
   const filteredResults = useMemo(() => {

@@ -5,7 +5,7 @@
  * 管理端抽獎執行頁面
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { LotteryEvent, Prize, Participant } from '@/types';
 import { getEvent } from '@/lib/data/events';
@@ -39,11 +39,7 @@ function DrawingPageContent({ eventId }: { eventId: string }) {
   const [error, setError] = useState<string | null>(null);
 
   // 載入活動資料
-  useEffect(() => {
-    loadEventData();
-  }, [eventId]);
-
-  const loadEventData = async () => {
+  const loadEventData = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
@@ -80,7 +76,11 @@ function DrawingPageContent({ eventId }: { eventId: string }) {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [eventId]);
+
+  useEffect(() => {
+    loadEventData();
+  }, [loadEventData]);
 
   // 處理獎項選擇
   const handlePrizeSelect = async (prizeId: string) => {

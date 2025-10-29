@@ -114,7 +114,17 @@ const LotteryEventSchema = z.object({
   scheduledAt: z
     .string()
     .datetime('預定時間必須為 ISO 8601 格式')
-    .refine((date) => new Date(date) >= new Date(), {
+    .refine((date) => {
+      // 比較日期時，允許在同一天內的任何時間
+      const scheduledDate = new Date(date);
+      const today = new Date();
+
+      // 將兩個時間設為同一天的開始時刻再比較
+      const scheduledDayStart = new Date(scheduledDate.getFullYear(), scheduledDate.getMonth(), scheduledDate.getDate(), 0, 0, 0);
+      const todayDayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
+
+      return scheduledDayStart >= todayDayStart;
+    }, {
       message: '預定日期不可早於當前日期',
     }),
   status: z.enum(['draft', 'active', 'completed', 'archived'], {
@@ -143,7 +153,17 @@ const CreateEventInputSchema = z.object({
   scheduledAt: z
     .string()
     .datetime('預定時間必須為 ISO 8601 格式')
-    .refine((date) => new Date(date) >= new Date(), {
+    .refine((date) => {
+      // 比較日期時，允許在同一天內的任何時間
+      const scheduledDate = new Date(date);
+      const today = new Date();
+
+      // 將兩個時間設為同一天的開始時刻再比較
+      const scheduledDayStart = new Date(scheduledDate.getFullYear(), scheduledDate.getMonth(), scheduledDate.getDate(), 0, 0, 0);
+      const todayDayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
+
+      return scheduledDayStart >= todayDayStart;
+    }, {
       message: '預定日期不可早於當前日期',
     }),
   allowDuplicateWinners: z.boolean().optional().default(false),

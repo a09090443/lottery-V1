@@ -21,6 +21,23 @@ export function now(): string {
 }
 
 /**
+ * 將 datetime-local 格式轉換為 ISO 8601 格式
+ * 注意: 後端驗證只檢查字符串是否為 ISO 8601 格式，並用 new Date(dateString) >= new Date() 比較
+ * @param datetimeLocal - datetime-local 格式字串（例：2025-10-24T14:30）
+ * @returns ISO 8601 格式字串（例：2025-10-24T14:30:00.000Z）
+ */
+export function datetimeLocalToISO(datetimeLocal: string): string {
+  // datetime-local 格式: YYYY-MM-DDTHH:mm
+  // 簡單方法：添加秒和毫秒，最後加上 Z（表示 UTC）
+  // JavaScript 的 new Date() 可以正確解析這種格式
+
+  // 添加 :00 for seconds, 然後加上 .000Z
+  const isoString = datetimeLocal + ':00.000Z';
+
+  return isoString;
+}
+
+/**
  * 驗證 ISO 8601 格式字串
  * @param dateString - 日期字串
  * @returns 是否為有效的 ISO 8601 格式
