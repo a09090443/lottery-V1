@@ -20,6 +20,13 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
 
   useEffect(() => {
     const checkAuth = () => {
+      // 登入頁面不需要保護
+      if (typeof window !== 'undefined' && window.location.pathname === '/admin/login') {
+        setIsAuthorized(true);
+        setIsLoading(false);
+        return;
+      }
+
       if (!isLoggedIn()) {
         router.push('/admin/login');
       } else {
