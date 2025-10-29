@@ -1,0 +1,189 @@
+# 抽獎系統規格書 (最終版)
+
+**一、系統概述**
+
+*   **系統名稱：** 單機版網頁抽獎系統 (名稱可自定義)
+*   **系統目標：** 建立一個運作於瀏覽器端、無需架設傳統後端伺服器的抽獎平台，適用於活動現場、離線環境或小型抽獎活動。
+*   **目標對象：** 活動管理員、參與抽獎的用戶。
+*   **系統特性：** 資料完全儲存於使用者的瀏覽器環境中，具備高回應速度，但不適用於需跨裝置同步數據或高併發的大型網路活動。
+
+**二、功能需求**
+
+1.  **管理端功能**
+
+    *   活動建立與管理
+    *   參與者管理
+    *   抽獎執行與設定
+    *   結果管理
+    *   系統設定
+
+2.  **用戶端功能 (前台展示)**
+
+    *   活動瀏覽
+    *   參與抽獎
+    *   中獎查詢
+
+**三、技術規格**
+
+*   核心架構：Jamstack (JavaScript, APIs, Markup) 純前端架構
+*   前端框架：Next.js (基於 React)
+*   開發語言：TypeScript (建議) 或 JavaScript
+*   資料庫引擎：SQLite (WebAssembly 版本)
+*   資料持久化策略 (Data Persistence)：IndexedDB 或 LocalStorage
+*   Next.js 特性應用
+*   檔案處理
+*   資料庫結構
+*   抽獎演算法
+*   狀態管理 (State Management)
+*   使用者介面 (UI)
+*   安全性實作 (受限環境)
+*   部署方式
+
+**四、非功能需求**
+
+*   效能
+*   可用性
+*   兼容性
+*   資料量限制
+*   安全性
+
+**五、資料流程簡述**
+
+*   應用初始化
+*   建立活動
+*   匯入參與者
+*   執行抽獎
+*   讀取資料
+
+**六、交付標的**
+
+*   完整的原始程式碼
+*   系統部署說明文件
+*   操作使用手冊
+
+**七、附錄**
+
+*   CSV 檔案格式範例 (參與者名單)
+*   CSV 檔案格式範例 (獎品清單)
+
+**八、抽獎特效規格**
+
+本章節詳細定義抽獎過程中的視覺特效，旨在提供更具吸引力且刺激的用戶體驗。
+
+*   **整體效果：** 模擬吃角子老虎機 (Slot Machine) 的轉動效果，在抽獎過程中快速切換參與者名單，營造緊張刺激的氣氛。
+
+*   **轉動時間：** 從管理員觸發抽獎開始，轉動特效持續 **5 秒**。
+
+*   **呈現內容：**
+
+    *   **參與者名單：** 於轉動區域快速且隨機地呈現參與者姓名。 顯示方式需要達到「模糊」的效果，讓使用者無法輕易辨識目前顯示的名字。
+    *   **模糊效果實現方式：**
+        *   **(1) 快速切換：** 使用 JavaScript 定時器 (`setInterval`) 快速更換轉動區域顯示的參與者姓名，每秒至少切換 10 次以上。
+        *   **(2) 動態模糊 (Motion Blur)：** 使用 CSS 或 JavaScript 函式庫 (如 GSAP) 增加動態模糊效果，強化快速移動的視覺感受。
+        *   **(3) 字體樣式：** 選擇筆畫較為複雜或粗體的字體，在快速轉動時更容易產生模糊感。
+    *   **視覺元素：** 可加入額外的視覺元素，如閃爍的光芒、快速移動的線條等，增強轉動的刺激感。
+
+*   **轉動速度：**
+
+    *   **初始速度：** 開始時以較快的速度轉動，讓使用者感受到緊張的氣氛。
+    *   **減速：** 隨著時間推移，轉動速度逐漸減慢，營造即將揭曉結果的期待感。
+    *   **減速曲線：** 可使用缓动函数 (Easing Function) 控制減速的速率，例如 `ease-out` 效果，使停止更加自然。
+
+*   **結果揭曉：**
+
+    *   **停止轉動：** 5 秒結束時，轉動特效完全停止，明確顯示中獎者的姓名。
+    *   **明顯提示：**
+        *   **(1) 高亮顯示：** 將中獎者的姓名以醒目的顏色高亮顯示 (例如：黃色、金色)。
+        *   **(2) 放大效果：** 稍微放大中獎者的姓名，使其更加突出。
+        *   **(3) 動畫效果：** 可加入簡單的動畫效果，如閃爍、光暈等，吸引使用者目光。
+        *   **(4) 音效：** 搭配中獎音效，強化中獎的喜悅感。
+
+*   **技術實現：**
+
+    *   **CSS Animation 或 JavaScript Animation：** 使用 CSS Animation 或 JavaScript 函式庫 (如 GSAP, Anime.js) 實現轉動和提示效果。
+    *   **React 組件：** 將轉動特效封裝為 React 組件，方便重用和管理。
+    *   **狀態管理：** 使用 React 的狀態管理機制 (例如：useState, useReducer) 控制轉動的開始、停止和結果顯示。
+
+*   **UI/UX 考量：**
+
+    *   **避免過度刺激：** 雖然要營造緊張感，但也需避免過度刺激的視覺效果，以免造成使用者不適。
+    *   **資訊清晰：** 確保在轉動過程中，使用者仍能清楚看到參與者姓名 (即使是模糊的)，並在結果揭曉時能快速辨識中獎者。
+    *   **可調整性：** 允許管理員調整轉動速度、特效樣式等參數，以符合不同活動的需求。
+
+**本規格將添加至原本的"三、技術規格"當中的 "使用者介面 (UI)" 和 "抽獎演算法"，以及 "五、資料流程簡述" 的 "執行抽獎"步驟。**
+
+**範例程式碼 (簡化版，僅示範基本概念):**
+
+```javascript
+import React, { useState, useEffect } from 'react';
+
+function LotterySpinner({ participants, winner }) {
+  const [spinning, setSpinning] = useState(false);
+  const [currentName, setCurrentName] = useState('');
+
+  useEffect(() => {
+    if (spinning) {
+      const intervalId = setInterval(() => {
+        // 隨機選擇一個參與者姓名
+        const randomIndex = Math.floor(Math.random() * participants.length);
+        setCurrentName(participants[randomIndex]);
+      }, 50); // 快速切換名字，產生模糊效果
+
+      // 5 秒後停止轉動
+      setTimeout(() => {
+        clearInterval(intervalId);
+        setSpinning(false);
+        setCurrentName(winner); // 顯示中獎者姓名
+      }, 5000);
+    }
+  }, [spinning, participants, winner]);
+
+  const startSpin = () => {
+    setSpinning(true);
+  };
+
+  return (
+    <div>
+      <div className={`spinner ${spinning ? 'spinning' : ''}`}>
+        {currentName}
+      </div>
+      <button onClick={startSpin} disabled={spinning}>
+        開始抽獎
+      </button>
+    </div>
+  );
+}
+
+export default LotterySpinner;
+```
+
+**CSS 樣式 (範例):**
+
+```css
+.spinner {
+  font-size: 2em;
+  padding: 20px;
+  border: 1px solid black;
+  width: 200px;
+  text-align: center;
+}
+
+.spinning {
+  animation: spin 5s linear; /* 轉動動畫 */
+}
+
+@keyframes spin {
+  0% {
+    filter: blur(5px); /* 模糊效果 */
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+```
+
+**總結：**
+
+本章節詳細定義了抽獎特效的各個方面，從轉動時間、呈現內容、轉動速度到結果揭曉，力求打造一個引人入勝且公平公正的抽獎體驗。開發者可根據本規格，選擇合適的技術方案實現相關效果。
+
+此規格書已包含完整的抽獎系統功能、技術細節，以及抽獎特效的設計。
