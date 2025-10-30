@@ -15,6 +15,21 @@ import { ParticipantForm } from '@/components/admin/ParticipantForm';
 import { ParticipantList } from '@/components/admin/ParticipantList';
 import { ParticipantImport } from '@/components/admin/ParticipantImport';
 import { formatDateTime } from '@/lib/utils/date';
+import { EventStatusType } from '@/types';
+
+const STATUS_LABELS: Record<EventStatusType, string> = {
+  draft: '草稿',
+  active: '進行中',
+  completed: '已完成',
+  archived: '已封存',
+};
+
+const STATUS_COLORS: Record<EventStatusType, string> = {
+  draft: 'bg-gray-100 text-gray-800',
+  active: 'bg-blue-100 text-blue-800',
+  completed: 'bg-green-100 text-green-800',
+  archived: 'bg-gray-100 text-gray-500',
+};
 
 export default function AdminEventDetailPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -135,10 +150,18 @@ export default function AdminEventDetailPage({ params }: { params: { id: string 
         <div className="bg-white shadow sm:rounded-lg p-6">
           <h1 className="text-2xl font-semibold text-gray-900">{event.name}</h1>
           {event.description && <p className="mt-2 text-sm text-gray-600">{event.description}</p>}
-          <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-5">
             <div>
               <dt className="text-sm font-medium text-gray-500">預定時間</dt>
               <dd className="mt-1 text-sm text-gray-900">{formatDateTime(event.scheduledAt)}</dd>
+            </div>
+            <div>
+              <dt className="text-sm font-medium text-gray-500">狀態</dt>
+              <dd className="mt-1">
+                <span className={`inline-flex rounded-full px-2 text-xs font-semibold ${STATUS_COLORS[event.status]}`}>
+                  {STATUS_LABELS[event.status]}
+                </span>
+              </dd>
             </div>
             <div>
               <dt className="text-sm font-medium text-gray-500">參與者</dt>

@@ -80,8 +80,13 @@ export function SlotMachine({
 
         // 計算捲動距離
         const itemHeight = 80; // 每個項目高度（px）
-        const totalHeight = displayedParticipants.length * itemHeight;
-        const finalPosition = -(totalHeight - itemHeight); // 停在最後一個項目
+
+        // 中獎者（最後一個項目）需要停在容器中央
+        // 容器中心在 120px，中央高亮區域範圍 80-160px
+        // padding-top 是 80px，所以第一個項目中心在 120px
+        // 第 n-1 個項目原始中心在: 120 + (n-1) * 80
+        // 要移到 120px，需要向上移動: -(n-1) * 80
+        const finalPosition = -(displayedParticipants.length - 1) * itemHeight;
 
         // Phase 1: 快速捲動（前 60% 時間）
         const rapidDuration = duration * 0.6;

@@ -72,7 +72,8 @@
       "Bash(findstr:*)",
       "Bash(timeout /t 5)",
       "Bash(powershell.exe -ExecutionPolicy Bypass -File update-tasks.ps1)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

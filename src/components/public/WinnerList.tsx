@@ -102,10 +102,10 @@ export function WinnerList({
                   {winner.participant.name}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-mono">
-                  {winner.participant.employeeIdDisplay || '-'}
+                  {winner.participant.maskedEmployeeId || '-'}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-mono">
-                  {winner.participant.nationalIdDisplay || '-'}
+                  {winner.participant.maskedNationalId || '-'}
                 </td>
                 {showTime && (
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -168,7 +168,7 @@ export function CompactWinnerList({
                   </span>
                   <span className="text-sm font-medium text-gray-900">{winner.participant.name}</span>
                   <span className="text-xs text-gray-500 font-mono">
-                    {winner.participant.employeeIdDisplay || winner.participant.nationalIdDisplay}
+                    {winner.participant.maskedEmployeeId || winner.participant.maskedNationalId}
                   </span>
                 </div>
                 <div className="ml-11 text-sm text-gray-600">

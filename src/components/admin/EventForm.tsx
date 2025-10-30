@@ -6,7 +6,7 @@
  */
 
 import { useState } from 'react';
-import { LotteryEvent, CreateEventInput, UpdateEventInput } from '@/types';
+import { LotteryEvent, CreateEventInput, UpdateEventInput, EventStatusType } from '@/types';
 import { createEvent, updateEvent } from '@/lib/data/events';
 import { datetimeLocalToISO } from '@/lib/utils/date';
 
@@ -17,16 +17,24 @@ export interface EventFormProps {
 }
 
 export function EventForm({ event, onSuccess, onCancel }: EventFormProps) {
+  // 將 ISO 8601 格式轉換為 datetime-local 格式
+  const formatDatetimeLocal = (isoString: string): string => {
+    // 移除時區資訊和秒數，只保留 YYYY-MM-DDTHH:mm
+    return isoString.slice(0, 16);
+  };
+
   const [formData, setFormData] = useState<{
     name: string;
     description: string;
     scheduledAt: string;
     allowDuplicateWinners: boolean;
+    status: EventStatusType;
   }>({
     name: event?.name ?? '',
     description: event?.description ?? '',
-    scheduledAt: event?.scheduledAt ?? new Date().toISOString().slice(0, 16),
+    scheduledAt: event?.scheduledAt ? formatDatetimeLocal(event.scheduledAt) : new Date().toISOString().slice(0, 16),
     allowDuplicateWinners: event?.allowDuplicateWinners ?? false,
+    status: event?.status ?? 'draft',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -52,6 +60,7 @@ export function EventForm({ event, onSuccess, onCancel }: EventFormProps) {
           description: formData.description || null,
           scheduledAt: scheduledAtISO,
           allowDuplicateWinners: formData.allowDuplicateWinners,
+          status: formData.status,
         };
         result = await updateEvent(event.id, input);
       } else {
@@ -73,7 +82,7 @@ export function EventForm({ event, onSuccess, onCancel }: EventFormProps) {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
 
     if (type === 'checkbox') {
@@ -137,6 +146,30 @@ export function EventForm({ event, onSuccess, onCancel }: EventFormProps) {
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
         />
       </div>
+
+      {isEditMode && (
+        <div>
+          <label htmlFor="status" className="block text-sm font-medium text-gray-700">
+            活動狀態 <span className="text-red-500">*</span>
+          </label>
+          <select
+            id="status"
+            name="status"
+            value={formData.status}
+            onChange={handleChange}
+            required
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+          >
+            <option value="draft">草稿</option>
+            <option value="active">進行中</option>
+            <option value="completed">已完成</option>
+            <option value="archived">已封存</option>
+          </select>
+          <p className="mt-1 text-sm text-gray-500">
+            修改活動狀態以控制在公開前台的顯示
+          </p>
+        </div>
+      )}
 
       <div className="flex items-start">
         <div className="flex h-5 items-center">

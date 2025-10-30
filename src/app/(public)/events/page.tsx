@@ -54,12 +54,18 @@ function EventsContent() {
     }
   };
 
-  // 篩選活動
+  // 篩選並排序活動
   const filteredEvents = useMemo(() => {
-    if (filterStatus === 'all') {
-      return events;
-    }
-    return events.filter((e) => e.status === filterStatus);
+    let filtered = filterStatus === 'all'
+      ? events
+      : events.filter((e) => e.status === filterStatus);
+
+    // 按預定日期排序（由近至遠）
+    return filtered.sort((a, b) => {
+      const dateA = new Date(a.scheduledAt).getTime();
+      const dateB = new Date(b.scheduledAt).getTime();
+      return dateB - dateA; // 降序：最新的在前
+    });
   }, [events, filterStatus]);
 
   const handleFilterChange = (newStatus: string) => {

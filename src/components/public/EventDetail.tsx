@@ -55,9 +55,9 @@ export function EventDetail({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-            <div className="text-blue-100 text-sm mb-1">活動期間</div>
+            <div className="text-blue-100 text-sm mb-1">預定時間</div>
             <div className="text-white font-semibold">
-              {formatDate(event.startDate)} <br />至 {formatDate(event.endDate)}
+              {formatDate(event.scheduledAt)}
             </div>
           </div>
 
