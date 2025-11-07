@@ -90,6 +90,11 @@ export async function getDatabase(): Promise<Database> {
     } else {
       // 建立新資料庫
       dbInstance = new SQL.Database();
+
+      // 首次建立資料庫時，需要初始化 schema
+      // 動態導入 migrations 模組以避免循環依賴
+      const { initDatabase } = await import('./migrations');
+      await initDatabase();
     }
 
     return dbInstance;
